@@ -92,10 +92,7 @@ class Searcher implements Runnable {
                 } else {
                     searchFile(file);
                 }
-            } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (IOException e) {
+            } catch (InterruptedException | IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
