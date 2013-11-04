@@ -25,7 +25,7 @@ public class FutureTest {
         in.close();
         System.out.printf("the filePath :%s, the keyWord : %s%n", filePath, keyWord);
         MatcherCount matcherCount = new MatcherCount(new File(filePath), keyWord);
-        FutureTask<Integer> task = new FutureTask<>(matcherCount);
+        FutureTask<Integer> task = new FutureTask<Integer>(matcherCount);
         new Thread(task, "match-main-Thread").start();
         try {
             System.out.println(task.get() + " matching files");
@@ -52,7 +52,7 @@ class MatcherCount implements Callable<Integer> {
         for (File file : startingDir.listFiles()) {
             if (file.isDirectory()) {
                 MatcherCount matcherCount = new MatcherCount(file, keyWord);
-                FutureTask<Integer> task = new FutureTask<>(matcherCount);
+                FutureTask<Integer> task = new FutureTask<Integer>(matcherCount);
                 list.add(task);
                 new Thread(task, "match-Thread-" + list.size()).start();
             } else {

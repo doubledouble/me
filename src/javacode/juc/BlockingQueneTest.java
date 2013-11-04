@@ -19,7 +19,7 @@ public class BlockingQueneTest {
           System.out.println("Charset.defaultCharset(): " + Charset.defaultCharset());
           int FIlE_QUENE_SIZE  = 10;
           int SEARCH_THREADS  = 100;
-          BlockingQueue<File> quene = new ArrayBlockingQueue<>(FIlE_QUENE_SIZE);
+          BlockingQueue<File> quene = new ArrayBlockingQueue<File>(FIlE_QUENE_SIZE);
           Scanner in = new Scanner(System.in);   // windows GBK  ---> eclipse --> run as --> configurtion --> common --> GBK
           System.out.println("请输入搜索文件路径");  // D:/tomcat_group/apache-tomcat-7.0.32_s1/logs
           String filePath = in.nextLine();
