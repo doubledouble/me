@@ -16,17 +16,16 @@ public class WaitingTest {
         Thread t1 = new Thread(o, "obj-thread");
         t1.start();
         
+//        t1.join(); //死锁
+        
         TimeUnit.SECONDS.sleep(5);
         
         Thread notifyInst = new Thread(new NotifyObj(o), "notify-inst-thread");
         notifyInst.start();
-        notifyInst.join();
-        
-        TimeUnit.SECONDS.sleep(5);
+        notifyInst.join();  
         
         Thread notifyInnerLock = new Thread(new NotifyObjInnerLock(o), "notify-innerlcok-thread");
         notifyInnerLock.start();
-        notifyInnerLock.join();
     }
 
 }
@@ -68,9 +67,9 @@ class Obj implements Runnable {
     public void testInnerLock() {
         synchronized (lock) {
            try {
-               System.out.println("=== before testWait3 waiting ===");
+               System.out.println("=== before testInnerLock waiting ===");
                lock.wait(); // 私有锁waiting 由持私有锁的线程 notify
-               System.out.println("=== after testWait3 waiting ===");
+               System.out.println("=== after testInnerLock waiting ===");
            } catch (InterruptedException e) {
             e.printStackTrace();
            }   
