@@ -10,13 +10,16 @@ public class WaitingTest {
      * @throws InterruptedException 
      */
     public static void main(String[] args) throws InterruptedException {
+        
+        
         Obj o = new Obj();
 //        o.testWait2(); //IllegalMonitorStateException
 //        o.testWait4(); //IllegalMonitorStateException
         Thread t1 = new Thread(o, "obj-thread");
         t1.start();
         
-//        t1.join(); //死锁
+//        t1.join();     //死锁
+        t1.join(1000); //再多等待1s 没有问题。
         
         TimeUnit.SECONDS.sleep(5);
         
