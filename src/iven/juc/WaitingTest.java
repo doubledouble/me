@@ -18,8 +18,8 @@ public class WaitingTest {
         Thread t1 = new Thread(o, "obj-thread");
         t1.start();
         
-//        t1.join();     //死锁
-        t1.join(1000); //再多等待1s 没有问题。
+//        t1.join();     // 相等于调用t1.wait(); 无止境的等待
+        t1.join(1000); //再多等待1s
         
         TimeUnit.SECONDS.sleep(5);
         
