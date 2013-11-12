@@ -16,8 +16,8 @@ public class AfterRunTest {
     public static void main(String[] args) throws InterruptedException {
         Thread run = new AfterRun();
         run.setName("obj-run-thread");
-        T t1 = new T(run, "wait-t1-thread");
-        T t2 = new T(run, "wait-t2-thread");
+        T t1 = new T(run, "wait-obj-t1-thread");
+        T t2 = new T(run, "wait-obj-t2-thread");
         t1.start();
         t2.start();
         TimeUnit.SECONDS.sleep(1);
