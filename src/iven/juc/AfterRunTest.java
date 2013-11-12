@@ -53,7 +53,10 @@ class T extends Thread {
         synchronized (t) {
             try {
                 System.out.printf("==== before wait current name %s ====%n", Thread.currentThread().getName());
-                t.wait();
+                for (;;) {
+                    t.wait();
+                    break;
+                }
                 System.out.printf("==== after wait current name %s ====%n", Thread.currentThread().getName());
             } catch (InterruptedException e) {
                 
