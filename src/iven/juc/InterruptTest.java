@@ -2,6 +2,15 @@ package iven.juc;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * interrupt thread  <br/>
+ * 1. thread 处于block(wait join sleep), throw InterruptedException, interrupt flag为false <br/> 
+ * (处理情况: a. 继续throw, b. 设置interrupt status = true)<br/>
+ * 2. 其他情况，见javadoc <br/>
+ * at last : runnable thread 只设置interrupt flag 为true 不影响线程其他操作 
+ * @author Administrator
+ *
+ */
 public class InterruptTest {
 
     /**

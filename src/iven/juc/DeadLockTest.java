@@ -1,5 +1,10 @@
 package iven.juc;
 
+/**
+ * 死锁测试  jconsole可以检测到
+ * @author Administrator
+ *
+ */
 public class DeadLockTest {
 
     /**
