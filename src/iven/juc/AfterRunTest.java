@@ -1,5 +1,6 @@
 package iven.juc;
 
+import java.rmi.server.ServerCloneException;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -28,8 +29,15 @@ public class AfterRunTest {
 
 class AfterRun extends Thread {
 
+
     @Override
-    public void run() {
+    protected Object clone() throws ServerCloneException {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void run()  {
         System.out.printf("==== before run current thread %s ====%n", Thread.currentThread().getName());
         for (int i=0 ; i< 1000 * 1000; i++) {
             
