@@ -29,7 +29,7 @@ public class FileTest {
         
         uri = FileTest.class.getResource(absoulte_Path_4_class).toURI();  // absoulte_Path
         file  = new File(uri);
-        System.out.printf("==== isExist : %s ====%n", file.exists());
+        System.out.printf("==== isExist : %s ====%n", file.exists());   
         System.out.printf("==== getPath : %s ====%n", file.getPath());
         System.out.printf("==== getName : %s ====%n", file.getName());
         System.out.printf("==== getCanonicalPath : %s ====%n", file.getCanonicalPath());
