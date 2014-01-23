@@ -29,7 +29,14 @@ public class ExecTwoTest {
            PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(proc.getOutputStream())), true);
            out.println("cd /usr/local/jboss/jboss-4.2.3.GA/server/default/log/");
            out.println("pwd");
+           out.println("date");
            out.println("ls -l");
+           out.println("echo \"begin to delete file not exist\"");
+           out.println("echo \"use rm -i file \"");
+           out.println("rm -i notexist.txt << EOF");
+           out.println("yes");
+           out.println("EOF");
+           out.println("exit");
            try {
               String line;
               while ((line = in.readLine()) != null) {
